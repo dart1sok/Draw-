@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Draw</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+        touch-action: none;
+        font-family: Arial, sans-serif;
+      }
+      canvas {
+        border: 1px solid #000;
+        background: white;
+        touch-action: none;
+        margin: 10px auto;
+        display: block;
+        max-width: 100%;
+      }
+      .tools {
+        margin: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+      }
+      button,
+      select {
+        padding: 8px 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .size-container {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      #sizeValue {
+        min-width: 40px;
+        text-align: center;
+      }
+
+      #clear {
+        background-color: #ff4444;
+        color: white;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      #save {
+        background-color: #44cc44;
+        color: white;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      #clear:hover,
+      #save:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+
+      #clear:active,
+      #save:active {
+        transform: scale(0.95);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Draw something</h1>
+    <div class="tools">
+      <select id="tool">
+        <option value="pencil">Олівець</option>
+        <option value="eraser">Ластик</option>
+        <option value="line">Лінія</option>
+        <option value="rect">Прямокутник</option>
+        <option value="circle">Коло</option>
+        <option value="triangle">Трикутник</option>
+        <option value="diamond">Ромб</option>
+      </select>
+      <input type="color" id="color" value="#000000" />
+      <div class="size-container">
+        <input type="range" id="size" min="1" max="20" value="3" />
+        <span id="sizeValue">3px</span>
+      </div>
+      <button id="clear">Очистити</button>
+      <button id="save">Зберегти</button>
+    </div>
+    <canvas id="canvas" width="800" height="500"></canvas>
+
+    <script src="script.js"></script>
+  </body>
+</html>
